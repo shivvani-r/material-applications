@@ -1,7 +1,7 @@
 name: Release Node.js app
 on:
   push:
-    branch:
+    branches:
       - main
     paths:
       - 'express-app/**'
@@ -27,6 +27,6 @@ jobs:
         uses: docker/build-push-action@v7
         with:
           platforms: linux/amd64,linux/arm64
-          context: .
+          context: ./express-app
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/express-app:latest
